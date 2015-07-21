@@ -10,7 +10,11 @@ EventBox = React.createClass
 InputBox = React.createClass
 	render: ->
 		React.createElement "input",
-			{className: "form-control", placeholder: "Search..."}
+			{className: "form-control", placeholder: "Search...", type: "text", value: this.state.value, onChange: this.handleChange}
+	handleChange: (event) ->
+		this.setState value: event.target.value
+	getInitialState: ->
+		value: "asdfasdfasdf!"
 
 ResultsBox = React.createClass
 	render: ->
