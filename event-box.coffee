@@ -1,52 +1,14 @@
 console.log "hello"
 
-events = [
-	"Audrey Oliver signed into Salesforce"
-	"Audrey Oliver failed to sign into Salesforce"
-	"Audrey Oliver had a suspicious sign in into Salesforce"
-	"Audrey Oliver attempted to reset their password, but is currently blocked"
-	"Audrey Oliver attempted to reset their password, but abandoned the attempt"
-	"Audrey Oliver attempted to reset their password, but cancelled the attempt"
-	"Audrey Oliver attempted to reset their password, and contacted the admin"
-	"Audrey Oliver failed to reset their password"
-	"Audrey Oliver successfully reset their password"
-	"Audrey Oliver registered for password reset"
-	"Clifford Word created Audrey Oliver"
-	"Clifford Word updated Audrey Oliver's display name"
-	"Clifford Word deleted Audrey Oliver"
-	"Clifford Word created the Sales group"
-	"Clifford Word updated the Sales group's display name"
-	"Clifford Word deleted the Sales group"
-	"Audrey Oliver requested to join the Sales group"
-	"Clifford Word approved Audrey Oliver's request to join the Sales group"
-	"Clifford Word rejected Audrey Oliver's request to join the Sales group"
-	"Clifford Word added Audrey Oliver to the Sales group"
-	"Clifford Word removed Audrey Oliver to the Sales group"
-	"Clifford Word created Salesforce"
-	"Clifford Word updated Salesforce's display name"
-	"Clifford Word deleted Salesforce"
-	"Clifford Word assigned Audrey Oliver to  Salesforce"
-	"Clifford Word updated Audrey Oliver's Salesforce credentials/role"
-	"Clifford Word removed Audrey Oliver from  Salesforce"
-	"Audrey Oliver's Salesforce password was successfully rolled over"
-	"Audrey Oliver's Salesforce password failed to roll over"
-	"Audrey Oliver was provisioned into Salesforce"
-	"Audrey Oliver failed to be provisioned into Salesforce"
-	"Wingtip Toys was created"
-	"Clifford Word updated Wingtip Toys's display name"
-]
+
 
 search = (searchString, event) ->
-	if event.indexOf(searchString) > -1
+	if event.description.toLowerCase().indexOf(searchString.toLowerCase()) > -1
 		return true
-
-
-
-
 
 EventBox = React.createClass
 	render: ->
-		React.createElement "div", id: "EventBox",
+		React.createElement "div", {id: "events", className: "col-sm-6"},
 			React.createElement("h1", null, "Events")
 			React.createElement(InputBox, {searchString: this.state.searchString, onSearchChange: this.handleSearchChange})
 			React.createElement(ResultsBox, {resultsList: this.state.resultsList})
@@ -58,8 +20,12 @@ EventBox = React.createClass
 		# console.log results
 		this.setState {searchString: searchString, resultsList: results}
 	getInitialState: ->
-		searchString: ""
-		resultsList: events
+		return {
+			searchString: this.props.search
+			resultsList: events
+		}
+	componentWillReceiveProps: (nextProps)->
+		this.handleSearchChange(nextProps.search)
 
 InputBox = React.createClass
 	render: ->
@@ -80,12 +46,6 @@ ResultsBox = React.createClass
 			React.createElement "tbody", null,
 				this.props.resultsList.map (result) ->
 					React.createElement("tr", null,
-						React.createElement("td", null, result)
-						React.createElement("td", null, "this is when it happened")
+						React.createElement("td", null, result.description)
+						React.createElement("td", null, result.datetime)
 					)
-
-
-React.render(
-	React.createElement(EventBox, null),
-	document.getElementById("events")
-)
