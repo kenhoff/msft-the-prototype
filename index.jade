@@ -1,1 +1,22 @@
-h1 asdfasdfasdf
+head
+	link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css", rel="stylesheet")
+	link(href = "/main.css", rel = "stylesheet")
+	script(src = "https://fb.me/react-0.13.3.js")
+body
+	.container-fluid
+		.row
+			#queries.col-sm-3
+				h1 Queries
+			#events.col-sm-6
+				h1 Events
+				input(type = "text").form-control
+				table.table
+					tr
+						th event
+						th datetime
+					tr
+						td string
+						td time
+			#properties.col-sm-3
+				h1 Properties
+	script(src = "/event-box.js")
