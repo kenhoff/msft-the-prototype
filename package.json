@@ -1,0 +1,23 @@
+{
+  "name": "the-prototype",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenhoff/the-prototype.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kenhoff/the-prototype/issues"
+  },
+  "homepage": "https://github.com/kenhoff/the-prototype#readme",
+  "dependencies": {
+    "harp": "^0.17.0"
+  }
+}
