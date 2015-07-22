@@ -1,7 +1,5 @@
 console.log "hello"
 
-
-
 search = (searchString, event) ->
 	if event.description.toLowerCase().indexOf(searchString.toLowerCase()) > -1
 		return true
@@ -11,13 +9,12 @@ EventBox = React.createClass
 		React.createElement "div", {id: "events", className: "col-sm-6"},
 			React.createElement("h1", null, "Events")
 			React.createElement(InputBox, {searchString: this.state.searchString, onSearchChange: this.handleSearchChange})
-			React.createElement(ResultsBox, {resultsList: this.state.resultsList})
+			React.createElement(ResultsBox, {resultsList: this.state.resultsList, onEventSelect: this.handleEventSelect})
 	handleSearchChange: (searchString) ->
 		results = []
 		for event in events
 			if search(searchString, event)
 				results.push(event)
-		# console.log results
 		this.setState {searchString: searchString, resultsList: results}
 	getInitialState: ->
 		return {
@@ -26,6 +23,10 @@ EventBox = React.createClass
 		}
 	componentWillReceiveProps: (nextProps)->
 		this.handleSearchChange(nextProps.search)
+	handleEventSelect: (event) ->
+		this.props.onEventSelect(event)
+
+
 
 InputBox = React.createClass
 	render: ->
@@ -35,17 +36,17 @@ InputBox = React.createClass
 		this.props.onSearchChange(event.target.value)
 
 ResultsBox = React.createClass
+	handleEventSelect: (event) ->
+		this.props.onEventSelect(event)
 	render: ->
-		# console.log this.props.resultsList
-		React.createElement "table", className: "table",
+		React.createElement "table", {className: "table"},
 			React.createElement "thead", null,
 				React.createElement("tr", null,
 						React.createElement("th", null, "event")
 						React.createElement("th", null, "datetime")
 				)
 			React.createElement "tbody", null,
-				this.props.resultsList.map (result) ->
-					React.createElement("tr", null,
+				this.props.resultsList.map (result) =>
+					React.createElement "tr", {onClick: this.handleEventSelect.bind(this, result)},
 						React.createElement("td", null, result.description)
 						React.createElement("td", null, result.datetime)
-					)
