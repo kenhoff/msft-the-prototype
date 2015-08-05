@@ -1,4 +1,4 @@
-events = [
+sampleEvents = [
 	{
 		description: "Audrey Oliver signed into Salesforce"
 		datetime: "7/21/15 12:54 PM"
@@ -96,7 +96,7 @@ events = [
 		datetime: "6/23/15 3:43 AM"
 	}
 	{
-		description: "Clifford Word assigned Audrey Oliver to  Salesforce"
+		description: "Clifford Word assigned Audrey Oliver to Salesforce"
 		datetime: "6/21/15 10:06 PM"
 	}
 	{
@@ -104,7 +104,7 @@ events = [
 		datetime: "6/20/15 4:30 PM"
 	}
 	{
-		description: "Clifford Word removed Audrey Oliver from  Salesforce"
+		description: "Clifford Word removed Audrey Oliver from Salesforce"
 		datetime: "6/19/15 10:53 AM"
 	}
 	{
@@ -132,3 +132,15 @@ events = [
 		datetime: "6/12/15 1:11 AM"
 	}
 ]
+
+events = []
+
+for i in [0..100]
+	event = sampleEvents[Math.floor(Math.random() * sampleEvents.length)]
+	events.push(event)
+
+
+
+
+
+	
