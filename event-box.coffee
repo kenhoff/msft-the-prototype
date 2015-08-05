@@ -7,9 +7,13 @@ search = (searchString, event) ->
 EventBox = React.createClass
 	render: ->
 		results = []
+		# do search, dump in results
 		for event in events
 			if search(this.props.search, event)
 				results.push(event)
+		# sort results
+		results.sort (a, b) ->
+			b.datetime.getTime() - a.datetime.getTime() 
 		React.createElement "div", {id: "events", className: "col-sm-6"},
 			React.createElement("h1", null, "Events")
 			React.createElement(InputBox, {searchString: this.props.search, onSearchChange: this.handleSearchChange})
@@ -46,4 +50,4 @@ ResultsBox = React.createClass
 				this.props.resultsList.map (result) =>
 					React.createElement "tr", {onClick: this.handleEventSelect.bind(this, result)},
 						React.createElement("td", null, result.description)
-						React.createElement("td", null, result.datetime)
+						React.createElement("td", null, result.datetime.toDateString()) # this is wherer

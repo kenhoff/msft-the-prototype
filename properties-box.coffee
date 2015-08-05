@@ -5,10 +5,13 @@ PropertiesBox = React.createClass
 			React.createElement "table", className: "table",
 				React.createElement "thead", null,
 					React.createElement "tr", null,
-							React.createElement("th", null, "property")
-							React.createElement("th", null, "value")
+						React.createElement("th", null, "property")
+						React.createElement("th", null, "value")
 				React.createElement "tbody", null,
 					for key, value of this.props.event
 						React.createElement "tr", null,
 							React.createElement("td", null, key)
-							React.createElement("td", null, value)
+							if (key == "datetime")
+								React.createElement("td", null, value.toString())
+							else
+								React.createElement("td", null, value)

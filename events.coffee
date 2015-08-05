@@ -133,14 +133,15 @@ sampleEvents = [
 	}
 ]
 
+
+randomDate = (start, end) ->
+	new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
+
 events = []
 
 for i in [0..100]
 	event = sampleEvents[Math.floor(Math.random() * sampleEvents.length)]
+	Math.seedrandom()
+	newDatetime = randomDate(new Date(2012, 0, 1), new Date())
+	event["datetime"] = newDatetime
 	events.push(event)
-
-
-
-
-
-	
