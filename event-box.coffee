@@ -6,23 +6,20 @@ search = (searchString, event) ->
 
 EventBox = React.createClass
 	render: ->
-		React.createElement "div", {id: "events", className: "col-sm-6"},
-			React.createElement("h1", null, "Events")
-			React.createElement(InputBox, {searchString: this.state.searchString, onSearchChange: this.handleSearchChange})
-			React.createElement(ResultsBox, {resultsList: this.state.resultsList, onEventSelect: this.handleEventSelect})
-	handleSearchChange: (searchString) ->
 		results = []
 		for event in events
-			if search(searchString, event)
+			if search(this.props.search, event)
 				results.push(event)
-		this.setState {searchString: searchString, resultsList: results}
+		React.createElement "div", {id: "events", className: "col-sm-6"},
+			React.createElement("h1", null, "Events")
+			React.createElement(InputBox, {searchString: this.props.search, onSearchChange: this.handleSearchChange})
+			React.createElement(ResultsBox, {resultsList: results, onEventSelect: this.handleEventSelect})
+	handleSearchChange: (searchString) ->
+		this.props.onSearchChange(searchString)
 	getInitialState: ->
 		return {
 			searchString: this.props.search
-			resultsList: events
 		}
-	componentWillReceiveProps: (nextProps)->
-		this.handleSearchChange(nextProps.search)
 	handleEventSelect: (event) ->
 		this.props.onEventSelect(event)
 
@@ -42,8 +39,8 @@ ResultsBox = React.createClass
 		React.createElement "table", {className: "table"},
 			React.createElement "thead", null,
 				React.createElement("tr", null,
-						React.createElement("th", null, "event")
-						React.createElement("th", null, "datetime")
+					React.createElement("th", null, "event")
+					React.createElement("th", null, "datetime")
 				)
 			React.createElement "tbody", null,
 				this.props.resultsList.map (result) =>

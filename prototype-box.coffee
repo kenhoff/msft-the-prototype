@@ -2,16 +2,18 @@ PrototypeBox = React.createClass
 	render: ->
 		React.createElement("div", null
 			React.createElement(ExampleBox, {onExampleSelect: this.handleExampleSelect})
-			React.createElement(EventBox, {search: this.state.search, onEventSelect: this.handleEventSelect})
+			React.createElement(EventBox, {search: this.state.search, onEventSelect: this.handleEventSelect, onSearchChange: this.handleSearchChange})
 			React.createElement(PropertiesBox, {event: this.state.event})
 		)
-	handleExampleSelect: (example) ->
-		this.setState {search: example}
 	getInitialState: ->
 		search: ""
 		event: {}
+	handleExampleSelect: (example) ->
+		this.setState({search: example})
+	handleSearchChange: (newSearch) ->
+		this.setState({search: newSearch})
 	handleEventSelect: (event)->
-		this.setState(event: event)
+		this.setState({event: event})
 
 
 ExampleBox = React.createClass
