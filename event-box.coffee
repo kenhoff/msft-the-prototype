@@ -13,7 +13,7 @@ EventBox = React.createClass
 				results.push(event)
 		# sort results
 		results.sort (a, b) ->
-			b.datetime.getTime() - a.datetime.getTime() 
+			b.datetime.getTime() - a.datetime.getTime()
 		React.createElement "div", {id: "events", className: "col-sm-6"},
 			React.createElement("h1", null, "Events")
 			React.createElement(InputBox, {searchString: this.props.search, onSearchChange: this.handleSearchChange})
@@ -50,4 +50,4 @@ ResultsBox = React.createClass
 				this.props.resultsList.map (result) =>
 					React.createElement "tr", {onClick: this.handleEventSelect.bind(this, result)},
 						React.createElement("td", null, result.description)
-						React.createElement("td", null, result.datetime.toDateString()) # this is wherer
+						React.createElement("td", null, result.datetime.toDateString()) # this is where we would put moment.js conversion/formatting
