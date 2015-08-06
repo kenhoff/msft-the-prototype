@@ -9,11 +9,12 @@ body
 	.container-fluid
 		.row
 			#prototype
-				h1 Loading...
+				h1 Generating data...
 	//- sample data, and generation
 	script(src = "/users.js")
+	script(src = "/groups.js")
 	script(src = "/apps.js")
-	script(src = "/events.js")
+	script(src = "/eventSpec.js")
 	script(src = "/dataBuilder.js")
 		
 	//- react
