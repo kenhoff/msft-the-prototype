@@ -1,0 +1,18 @@
+apps = [
+	"Box"
+	"Citrix GoToMeeting"
+	"Concur"
+	"Docusign"
+	"Dropbox for Business"
+	"Dynamics CRM"
+	"Google Apps"
+	"Jive"
+	"Office 365 Exchange Online"
+	"Office 365 SharePoint Online"
+	"Salesforce"
+	"Salesforce Sandbox"
+	"ServiceNow"
+	"Workday"
+	"Azure Management Portal"
+	"Azure Preview Portal"
+]
