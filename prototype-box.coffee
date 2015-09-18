@@ -18,7 +18,7 @@ PrototypeBox = React.createClass
 
 ExampleBox = React.createClass
 	render: ->
-		React.createElement("div", {id: "examples", className: "col-sm-3"}
+		React.createElement("div", {id: "examples", className: "col-sm-2"}
 			React.createElement("h1", null, "Examples")
 			React.createElement "p", null,
 				React.createElement("a", {onClick: this.handleExampleSelect.bind(this, "Audrey Oliver")}, "Audrey Oliver")
