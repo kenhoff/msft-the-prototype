@@ -1,0 +1,314 @@
+/*
+	This is a list of sample reporting events.
+
+	Fields not included yet: "result", "updated", “datetime”, or secondary properties
+*/
+
+events = [
+
+	/*users*/
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "user.sign_in",
+		"targets": [{
+			"display_name": "Salesforce"
+		}]
+	},
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "user.reset_pw",
+		"targets": [{
+			"display_name": "Debbie Furtado",
+			"upn": "debbie@microsoft.com"
+		}]
+	},
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "user.create",
+		"targets": [{
+			"display_name": "Debbie Furtado",
+			"upn": "debbie@microsoft.com"
+		}]
+	},
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "user.update",
+		"targets": [{
+			"display_name": "Debbie Furtado",
+			"upn": "debbie@microsoft.com"
+		}]
+	},
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "user.delete",
+		"targets": [{
+			"display_name": "Debbie Furtado",
+			"upn": "debbie@microsoft.com"
+		}]
+	},
+
+	/*group CRUD*/
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "group.create",
+		"targets": [{
+			"display_name": "Sales team"
+		}]
+	},
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "group.update",
+		"targets": [{
+			"display_name": "Sales team"
+		}]
+	},
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "group.delete",
+		"targets": [{
+			"display_name": "Sales team"
+		}]
+	},
+
+	/*group requests*/
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "group.create_request",
+		"targets": [{
+			"display_name": "Debbie Furtado",
+			"upn": "debbie@microsoft.com"
+		}, {
+			"display_name": "Sales team"
+		}]
+	},
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "group.approve_request",
+		"targets": [{
+			"display_name": "Debbie Furtado",
+			"upn": "debbie@microsoft.com"
+		}, {
+			"display_name": "Sales team"
+		}]
+	},
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "group.reject_request",
+		"targets": [{
+			"display_name": "Debbie Furtado",
+			"upn": "debbie@microsoft.com"
+		}, {
+			"display_name": "Sales team"
+		}]
+	},
+
+	/*group membership*/
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "group.add_member",
+		"targets": [{
+			"display_name": "Debbie Furtado",
+			"upn": "debbie@microsoft.com"
+		}, {
+			"display_name": "Sales team"
+		}]
+	},
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "group.remove_member",
+		"targets": [{
+			"display_name": "Debbie Furtado",
+			"upn": "debbie@microsoft.com"
+		}, {
+			"display_name": "Sales team"
+		}]
+	},
+
+	/*app CRUD*/
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "app.create",
+		"targets": [{
+			"display_name": "Salesforce"
+		}]
+	},
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "app.update",
+		"targets": [{
+			"display_name": "Salesforce"
+		}]
+	},
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "app.delete",
+		"targets": [{
+			"display_name": "Salesforce"
+		}]
+	},
+
+	/*app membership*/
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "app.assign_member",
+		"targets": [{
+			"display_name": "Debbie Furtado",
+			"upn": "debbie@microsoft.com"
+		}, {
+			"display_name": "Salesforce"
+		}]
+	},
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "app.update_member",
+		"targets": [{
+			"display_name": "Debbie Furtado",
+			"upn": "debbie@microsoft.com"
+		}, {
+			"display_name": "Salesforce"
+		}]
+	},
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "app.remove_member",
+		"targets": [{
+			"display_name": "Debbie Furtado",
+			"upn": "debbie@microsoft.com"
+		}, {
+			"display_name": "Salesforce"
+		}]
+	},
+
+	/*rollover/provisioning*/
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "app.pw_rollover",
+		"targets": [{
+			"display_name": "Debbie Furtado",
+			"upn": "debbie@microsoft.com"
+		}, {
+			"display_name": "Twitter"
+		}]
+	},
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "app.provision",
+		"targets": [{
+			"display_name": "Debbie Furtado",
+			"upn": "debbie@microsoft.com"
+		}, {
+			"display_name": "Salesforce"
+		}]
+	},
+
+	/*directory ops*/
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "directory.create",
+		"targets": [{
+			"display_name": "Contoso",
+			"directory_name": "contoso.onmicrosoft.com"
+		}]
+	},
+
+	{
+		"actor": {
+			"display_name": "Ken Hoff",
+			"upn": "kenhoff@microsoft.com"
+		},
+		"action": "directory.update",
+		"targets": [{
+			"display_name": "Contoso",
+			"directory_name": "contoso.onmicrosoft.com"
+		}]
+	}
+
+]
