@@ -1,8 +1,8 @@
 console.log "hello"
 
 search = (searchString, event) ->
-	if event.description.toLowerCase().indexOf(searchString.toLowerCase()) > -1
-		return true
+	# if event.description.toLowerCase().indexOf(searchString.toLowerCase()) > -1
+	return true
 
 EventBox = React.createClass
 	render: ->

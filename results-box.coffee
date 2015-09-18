@@ -5,11 +5,15 @@ ResultsBox = React.createClass
 		React.createElement "table", {className: "table"},
 			React.createElement "thead", null,
 				React.createElement("tr", null,
-					React.createElement("th", null, "event")
+					React.createElement("th", null, "actor")
+					React.createElement("th", null, "action")
+					React.createElement("th", null, "targets")
 					React.createElement("th", null, "datetime")
 				)
 			React.createElement "tbody", null,
 				this.props.resultsList.map (result) =>
 					React.createElement "tr", {onClick: this.handleEventSelect.bind(this, result)},
-						React.createElement("td", null, result.description)
+						React.createElement("td", null, result.actor.display_name)
+						React.createElement("td", null, result.action)
+						React.createElement("td", null, result.targets[0])
 						React.createElement("td", null, result.datetime.toDateString()) # this is where we would put moment.js conversion/formatting

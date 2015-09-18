@@ -1,4 +1,4 @@
-users = [
+user_display_names = [
 	"Pearlie Morales"
 	"Juliet Moody"
 	"Molly Warren"
@@ -21,3 +21,13 @@ users = [
 	"Audrey Oliver"
 	"Clifford Word"
 ]
+
+users = []
+
+for user in user_display_names
+	newUser = {}
+	newUser["display_name"] = user
+	newUser["upn"] = user.toLowerCase().split(" ").join(".") + "@contoso.com"
+	users.push(newUser)
+
+# console.log users
