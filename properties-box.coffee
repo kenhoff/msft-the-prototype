@@ -1,57 +1,32 @@
 PropertiesBox = React.createClass
 	render: ->
-		console.log this.props.event
-		React.createElement "div", {id: "properties", className: "col-sm-3"},
-			React.createElement("h1", null, "Properties")
-			React.createElement "table", className: "table",
-				React.createElement "thead", null,
-					React.createElement "tr", null,
-						React.createElement("th", null, "property")
-						React.createElement("th", null, "value")
-				React.createElement "tbody", null,
-					for key, value of this.props.event
-						React.createElement(PropertiesRow, {key: key, value: value})
+		if (Object.keys(this.props.event).length == 0)
+			return React.createElement "div"
+		else
+			console.log this.props.event
+			builtArray = buildArray(this.props.event, 0)
+			# console.log JSON.stringify(this.props.event, null, "	")
+			React.createElement "div", {id: "properties", className: "col-sm-3"},
+				React.createElement("h1", null, "Properties")
+				React.createElement "table", className: "table",
+					React.createElement "thead", null,
+						React.createElement "tr", null,
+							React.createElement("th", null, "property")
+							React.createElement("th", null, "value")
+						builtArray.map (row) ->
+							React.createElement "tr", null,
+								React.createElement "td", className: "indent-" + row[2], row[0]
+								React.createElement "td", null, row[1]
 
-
-PropertiesRow = React.createClass
-	# console.log "rendering #{key}"
-	render: ->
-		if (typeof value == "string")
-			# console.log "it's a string!"
-			React.createElement "tr", null,
-				# just render the key and value
-				React.createElement("td", null, key)
-				React.createElement("td", null, value)
+buildArray = (object, indent) ->
+	childArray = []
+	for property, value of object
+		if (property == "datetime")
+			childArray.push [property, value.toString(), indent]
+		else if (typeof value == "string")
+			childArray.push [property, value, indent]
 		else if (typeof value == "object")
-			# console.log "it's an object!"
-			React.createElement "tr", null,
-				React.createElement("td", null, key)
-				React.createElement("td", null, "")
-
-
-
-
-
-		# for key2, value2 of value
-		# 	renderKeyValue(key2, value2)
-
-
-
-
-
-# write a row
-# attempt to render the value, indent key by 1
-
-
-
-
-
-
-	# for key, value of this.props.event
-	# 		React.createElement("td", null, key)
-	# 		if (key == "datetime")
-	# 			React.createElement("td", null, value.toString())
-	# 		else
-	# 			for key2, value2 of value
-	# 				console.log value2
-	# 			React.createElement("td", null, value)
+			childArray.push [property, null, indent]
+			childArray = childArray.concat(buildArray(value, indent + 1))
+	return childArray
+	# return [["actor", "ken"]]

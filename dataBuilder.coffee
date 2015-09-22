@@ -9,5 +9,5 @@ for i in [0..100]
 	event["actor"] = users[Math.floor(Math.random() * users.length)]
 	event["action"] = actions[Math.floor(Math.random() * actions.length)]
 	event["targets"] = [apps[Math.floor(Math.random() * apps.length)]]
-	event["datetime"] = randomDate(new Date(2015, 0, 1), new Date())
+	event["datetime"] = randomDate(new Date(2014, 0, 1), new Date())
 	events.push(clone(event))
