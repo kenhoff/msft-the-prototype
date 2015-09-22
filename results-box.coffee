@@ -15,5 +15,5 @@ ResultsBox = React.createClass
 					React.createElement "tr", {onClick: this.handleEventSelect.bind(this, result)},
 						React.createElement("td", null, result.actor.display_name)
 						React.createElement("td", null, result.action)
-						React.createElement("td", null, result.targets[0])
+						React.createElement("td", null, result.targets[0].display_name)
 						React.createElement("td", null, result.datetime.toDateString()) # this is where we would put moment.js conversion/formatting

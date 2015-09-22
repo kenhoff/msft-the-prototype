@@ -1,4 +1,4 @@
-apps = [
+app_display_names = [
 	"Box"
 	"Citrix GoToMeeting"
 	"Concur"
@@ -16,3 +16,12 @@ apps = [
 	"Azure Management Portal"
 	"Azure Preview Portal"
 ]
+
+
+apps = []
+
+for app in app_display_names
+	newApp = {}
+	newApp["display_name"] = app
+	newApp["app_id"] = app.toLowerCase().split(" ").join("")
+	apps.push(newApp)
