@@ -1,27 +1,17 @@
 console.log "hello"
 
 search = (searchString, event) ->
-	# console.log searchString
-	# console.log event
-	# recursively search through all values of the object
 	for property, value of event
-		# console.log property, value
 		if (typeof value == "string")
 			if (value.toLowerCase().indexOf(searchString.toLowerCase()) > -1)
-				# console.log "found #{searchString} in #{value}"
 				return true
-			else
-				return false
-		# if typeof value == "array" ?
 		else if (typeof value == "object")
-			# console.log result
-			return search(searchString, value)
-		else return false
+			if search(searchString, value)
+				return true
+	return false
 
 
 
-	# if event.description.toLowerCase().indexOf(searchString.toLowerCase()) > -1
-	return true
 
 EventBox = React.createClass
 	render: ->
