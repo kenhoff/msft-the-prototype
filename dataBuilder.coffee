@@ -4,7 +4,7 @@ randomDate = (start, end) ->
 
 events = []
 
-for i in [0..1]
+for i in [0..100]
 	event = {}
 	event["actor"] = users[Math.floor(Math.random() * users.length)]
 	event["action"] = actions[Math.floor(Math.random() * actions.length)]
