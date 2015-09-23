@@ -1,4 +1,4 @@
-PropertiesBox = React.createClass
+PropertiesBlade = React.createClass
 	render: ->
 		if (Object.keys(this.props.event).length == 0)
 			return React.createElement "div"
@@ -29,4 +29,3 @@ buildArray = (object, indent) ->
 			childArray.push [property, null, indent]
 			childArray = childArray.concat(buildArray(value, indent + 1))
 	return childArray
-	# return [["actor", "ken"]]

@@ -3,7 +3,7 @@ PrototypeBox = React.createClass
 		React.createElement("div", null
 			React.createElement(ExampleBox, {onExampleSelect: this.handleExampleSelect})
 			React.createElement(EventBox, {search: this.state.search, onEventSelect: this.handleEventSelect, onSearchChange: this.handleSearchChange})
-			React.createElement(PropertiesBox, {event: this.state.event})
+			React.createElement(PropertiesBlade, {event: this.state.event})
 		)
 	getInitialState: ->
 		search: ""
