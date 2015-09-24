@@ -12,7 +12,7 @@ ResultsBox = React.createClass
 				)
 			React.createElement "tbody", null,
 				this.props.resultsList.map (result) =>
-					React.createElement "tr", {onClick: this.handleEventSelect.bind(this, result)},
+					React.createElement "tr", {onClick: this.handleEventSelect.bind(this, result), style: {"cursor": "pointer"}},
 						React.createElement("td", null, result.actor.display_name)
 						React.createElement("td", null, result.action)
 						React.createElement("td", null, result.targets[0].display_name)
