@@ -10,4 +10,5 @@ for i in [0..100]
 	event["action"] = actions[Math.floor(Math.random() * actions.length)]
 	event["targets"] = [apps[Math.floor(Math.random() * apps.length)]]
 	event["datetime"] = randomDate(new Date(2014, 0, 1), new Date())
+	event["event_id"] = makeid(32)
 	events.push(clone(event))
