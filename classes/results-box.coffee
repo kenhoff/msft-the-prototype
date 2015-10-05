@@ -2,7 +2,7 @@ ResultsBox = React.createClass
 	handleEventSelect: (event) ->
 		this.props.onEventSelect(event)
 	render: ->
-		React.createElement "table", {className: "table"},
+		React.createElement "table", {className: "table table-hover"},
 			React.createElement "thead", null,
 				React.createElement("tr", null,
 					React.createElement("th", null, "actor")
