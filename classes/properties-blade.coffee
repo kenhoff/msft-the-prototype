@@ -3,7 +3,6 @@ PropertiesBlade = React.createClass
 		if (Object.keys(this.props.event).length == 0)
 			return React.createElement "div"
 		else
-			console.log this.props.event
 			builtArray = buildArray(this.props.event, 0)
 			# console.log JSON.stringify(this.props.event, null, "	")
 			React.createElement "div", {id: "properties", className: "col-sm-3"},
