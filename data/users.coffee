@@ -20,6 +20,7 @@ user_display_names = [
 	"Ali Bayne"
 	"Audrey Oliver"
 	"Clifford Word"
+	"Ken Hoff"
 ]
 
 users = []

@@ -28,7 +28,7 @@ EventBox = React.createClass
 		# do search, dump in results
 		if (searchArray.length == 0)
 			searchObject = this.props.search
-		console.log searchObject
+		# console.log searchObject
 		for event in events
 			if search(searchObject, event)
 				results.push(event)
