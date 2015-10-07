@@ -36,7 +36,7 @@ EventBox = React.createClass
 		results.sort (a, b) ->
 			b.datetime.getTime() - a.datetime.getTime()
 		React.createElement "div", {id: "events", className: "col-sm-6"},
-			React.createElement("h1", null, "Event Log")
+			React.createElement("h1", null, "Activities")
 			React.createElement(Buttons, {onFilterClick: this.handleFilterClick})
 			React.createElement(InputBox, {searchString: this.props.search, onSearchChange: this.handleSearchChange})
 			React.createElement(ResultsBox, {resultsList: results, onEventSelect: this.handleEventSelect, selectedEvent: this.props.selectedEvent})
